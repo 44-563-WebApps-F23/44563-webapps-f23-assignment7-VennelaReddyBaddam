@@ -59,43 +59,119 @@
            <div class="row">
               <div class="col">
               
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 5" width="200" height="150"></div>
+                  <div class="location"><img src="pirate.jpg" alt="Location 1" width="200" height="150"></div>
+                  <div class="location"><img src="pirate.jpg" alt="Location 2" width="200" height="150"></div>
+                  <div class="location"><img src="pirate.jpg" alt="Location 3" width="200" height="150"></div>
+                  <div class="location"><img src="pirate.jpg" alt="Location 4" width="200" height="150"></div>
+                  <div class="location"><img src="pirate.jpg" alt="Location 5" width="200" height="150"></div>
               </div>
             </div>
             <div class="row">
               <div class="col">
               
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 5" width="200" height="150"></div>
+                  <div class="location"><img src="traplocation.jpg" alt="Location 1" width="200" height="150"></div>
+                  <div class="location"><img src="traplocation.jpg" alt="Location 2" width="200" height="150"></div>
+                  <div class="location"><img src="traplocation.jpg" alt="Location 3" width="200" height="150"></div>
+                  <div class="location"><img src="traplocation.jpg" alt="Location 4" width="200" height="150"></div>
+                  <div class="location"><img src="traplocation.jpg" alt="Location 5" width="200" height="150"></div>
               </div>
             </div>
             <div class="row">
               <div class="col">
               
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 5" width="200" height="150"></div>
+                  <div class="location"><img src="treasurelocation.jpg" alt="Location 1" width="200" height="150"></div>
+                  <div class="location"><img src="treasurelocation.jpg" alt="Location 2" width="200" height="150"></div>
+                  <div class="location"><img src="treasurelocation.jpg" alt="Location 3" width="200" height="150"></div>
+                  <div class="location"><img src="treasurelocation.jpg" alt="Location 4" width="200" height="150"></div>
+                  <div class="location"><img src="treasurelocation.jpg" alt="Location 5" width="200" height="150"></div>
               </div>
             </div>
             <div class="row">
               <div class="col">
               
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="hiddentreasure.jpg" alt="Location 5" width="200" height="150"></div>
+                  <div class="location"><img src="gameover.jpg" alt="Location 1" width="200" height="150"></div>
+                  <div class="location"><img src="gameover.jpg" alt="Location 2" width="200" height="150"></div>
+                  <div class="location"><img src="gameover.jpg" alt="Location 3" width="200" height="150"></div>
+                  <div class="location"><img src="gameover.jpg" alt="Location 4" width="200" height="150"></div>
+                  <div class="location"><img src="gameover.jpg" alt="Location 5" width="200" height="150"></div>
               </div>
             </div>
+            <script>
+              const onclick = ["check0","check1","check2","check3","check4","check5","check6","check7","check8","check9","check10","check11","check12","check13","check14","check15","check16","check17","check18","check19","check20","check21","check22","check23","check24"];
+              var checkcount = 0;
+              var penalty = 0;
+              var treasurelocation = 5;
+              var traplocation = 18;
+              var gameover = false;
+
+              function check(position){
+                if(gameover){
+                  return;
+                }
+                const checknumber = document.getElementById(onclick[position]);
+                if(position==treasurelocation)
+                check_no.src = "treasurelocation.jpg";
+                    gameOver = true;
+                    penalty -= 3;
+                }
+                else if(position == trapLocation){
+                    check_no.src = "traplocation.png";
+                    gameOver = true;
+                    penalty += 4;
+                }
+                else{
+                    check_no.src = "gameover.jpeg";
+                }
+
+                checkCount++;
+                penalty++;
+                document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount;
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+                lastCheck = position;
+            }
+
+            function help() {
+                if (gameOver) {
+                    return;
+                }
+                let treasureRow = Math.floor(treasureLocation / 5);
+                let treasureCol = treasureLocation % 5;
+                let lastLocationRow = Math.floor(lastCheck / 5);
+                let lastLocationCol = lastCheck % 5;
+
+                if (Math.abs(treasureRow - lastLocationRow) <= 1 && Math.abs(treasureCol - lastLocationCol) <= 1) {
+                    document.getElementById("help").innerHTML = "Can smell it";
+                } else if (Math.abs(treasureRow - lastLocationRow) + Math.abs(treasureCol - lastLocationCol) === 2) {
+                    document.getElementById("help").innerHTML = "Close Matie";
+                } else {
+                    document.getElementById("help").innerHTML = "Step Faster";
+                }
+                penalty += 2;
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+            }
+
+                      
+            var trapLocation = Math.floor(Math.random() * 25); 
+            var treasureLocation = Math.floor(Math.random() * 25); 
+
+            function newGame() {
+                trapLocation = Math.floor(Math.random() * 25);
+                treasureLocation = Math.floor(Math.random() * 25);
+                checkCount = 0;
+                penalty = 0;
+                lastCheck = 0;
+                gameOver = false;
+                document.getElementById("locations").innerHTML = "Number of locations checked is 0";
+                document.getElementById("penalty").innerHTML = "Penalty is 0";
+                document.getElementById("help").innerHTML = "Click for help";
+                
+            }
+
+        </script>
+        
+              }
+
+            </script>
 
 </body>
 </html>
