@@ -1,31 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <style>
-    .container{
-      display: grid;
-      grid-template-columns: repeat(5,1fr);
-      height:0%;
-    }
-    .row{
-      align-items: center;
-      margin: 2px;
-      padding: 5px;
-      border: 7px;
-    }
-    .col{
-      align-items: center;
-      grid-column: auto;
-      margin:2px;
-      padding: 5px;
-      border: 7px;
-    }
-    .location{
-      margin: 9px;
-    }
-  </style>
-    
-<title>treasure hunt</title>
-<meta charset="utf-8">
+  <title>Pirate</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -34,144 +11,181 @@
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<style>
+   body {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+.game-location {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+}
+
+.game{
+  margin-bottom: 20px;
+}   
+.container{
+  display:flex;
+
+}
+
+</style>
 </head>
 <body>
-    <h1 style="background-color: rgb(207, 186, 227);font-style:italic;">Find the treasure by VennelaReddyBaddam</h1>
-    <div style="color: rgb(6, 63, 60);background-color: rgb(222, 194, 189);">
+<h1 style="background-color:rgb(36, 193, 96); font-family: cursive; " >Find the treasure by VennelaReddyBaddam</h1>
+<p style="background-color:rgb(150, 203, 241); font-family: Verdana, Geneva, Tahoma, sans-serif;" >Click on the locations to search for treasure, beware the traps</p>
+<p id="locations" style="background-color:rgb(168, 219, 202); font-style: oblique;" >Number of locations checked is zero.</p>
+<p id="penalty" style="background-color:rgb(228, 235, 129); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Penalty is zero</p>
+<p type="button" style="background-color:rgb(224, 186, 240); font-style:oblique" onclick="help()" >Click for help</p>
+<p style="background-color:rgb(240, 166, 186); font-family: fantasy;" id="help">Help report</p>
+
+
+<div class="game" >
+<div class="container" >
+    <div  class="game-location" onclick="check(0)"><img id="img0" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(1)"><img id="img1" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(2)"><img id="img2" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(3)"><img id="img3" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(4)"><img id="img4" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+  </div>
+
+  
+<div class="container" >
+  <div  class="game-location" onclick="check(5)"><img id="img5" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(6)"><img id="img6" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(7)"><img id="img7" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(8)"><img id="img8" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(9)"><img id="img9" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+  </div>
+
+<div class="container" >
+  <div  class="game-location" onclick="check(10)"><img id="img10" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(11)"><img id="img11" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(12)"><img id="img12" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(13)"><img id="img13" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(14)"><img id="img14" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+  </div>
+
+<div class="container" >
+  <div  class="game-location" onclick="check(15)"><img id="img15" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(16)"><img id="img16" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(17)"><img id="img17" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(18)"><img id="img18" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(19)"><img id="img19" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+   </div>
+
+<div class="container" >
+  <div  class="game-location" onclick="check(20)"><img id="img20" class="img-game" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(21)"><img class="img-game" id="img21" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(22)"><img class="img-game" id="img22" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(23)"><img class="img-game" id="img23" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+    <div  class="game-location" onclick="check(24)"><img class="img-game" id="img24" src="file:///C:/Users/S566656/Pictures/treasurelocation.jpg" alt="location" height="60px" width="60px"></div>
+   </div>
+  </div>
+  <p><input type="button" class="btn btn-warning" value="New Game" onClick="refresh(this)"></p>
+   <script>
+    var checkCount= 0;
+    var penalty= 0;
+    var lastCheck= Math.floor(Math.random()*(24-0)-0);;
+    var treasureLocation= Math.floor(Math.random()*(24-0)-0);;
+    var trapLocation=18;
+    var gameOver= false;
+    const ids= [
+      "img0",
+      "img1",
+      "img2",
+      "img3",
+      "img4",
+      "img5",
+      "img6",
+      "img7",
+      "img8",
+      "img9",
+      "img10",
+      "img11",
+      "img12",
+      "img13",
+      "img14",
+      "img15",
+      "img16",
+      "img17",
+      "img18",
+      "img19",
+      "img20",
+      "img21",
+      "img22",
+      "img23",
+      "img24",
+    ];
+
+    function check(position){
+      if(gameOver){
+        return;
+      }
+
+      var image= ids[position];
+
+      var imageElement = document.getElementById(image);
+
+      if(position === treasureLocation){
+        imageElement.src = "hiddentreasure.jpg";
+        checkCount++;
+        penalty++;
+        document.getElementById("locations").textContent="Location Checked: " + checkCount;
+        gameOver= true;
+        penalty -=3;
+      }
+      else if(position === trapLocation) {
+        imageElement.src="traplocation.jpg";
+        checkCount++;
+        penalty++;
+        document.getElementById("locations").textContent="Location Checked: " + checkCount;
+        gameOver = true;
+        penalty +=4;
+      }
+      else{
+        imageElement.src="pirate.jpg";
+        checkCount++;
+        penalty++;
+        document.getElementById("locations").textContent="Location Checked: " + checkCount;
+
+      }
+      document.getElementById("penalty").textContent="Penalty: " + penalty;
+      lastCheck=position;
+    }
+
+    function help(){
+     var treasureRow=Math.floor(treasureLocation/5);
     
-        <p>Click on the locations to search for treasure, beware the traps</p>
-        <p id="locations">Number of locations checked is zero.</p>
-        <p id="penalty">Penalty is zero.</p>
-        <p>Click for help.</p>
-        <p id="help">Help report</p>
+      var treasureColumn=Math.floor(treasureLocation%5)
+      var lastRow = Math.floor(lastCheck / 5);
+    var lastCol = Math.floor(lastCheck % 5);
     
-        <div class="container">
-          <div class="row">
-            <div class="col">
-            
-                <div class="location"><img src="hiddentreasure.jpg" alt="Location 1" width="200" height="150"></div>
-                <div class="location"><img src="hiddentreasure.jpg" alt="Location 2" width="200" height="150"></div>
-                <div class="location"><img src="hiddentreasure.jpg" alt="Location 3" width="200" height="150"></div>
-                <div class="location"><img src="hiddentreasure.jpg" alt="Location 4" width="200" height="150"></div>
-                <div class="location"><img src="hiddentreasure.jpg" alt="Location 5" width="200" height="150"></div>
-            </div>
-          </div>
-           <div class="row">
-              <div class="col">
-              
-                  <div class="location"><img src="pirate.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="pirate.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="pirate.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="pirate.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="pirate.jpg" alt="Location 5" width="200" height="150"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-              
-                  <div class="location"><img src="traplocation.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="traplocation.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="traplocation.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="traplocation.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="traplocation.jpg" alt="Location 5" width="200" height="150"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-              
-                  <div class="location"><img src="treasurelocation.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="treasurelocation.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="treasurelocation.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="treasurelocation.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="treasurelocation.jpg" alt="Location 5" width="200" height="150"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-              
-                  <div class="location"><img src="gameover.jpg" alt="Location 1" width="200" height="150"></div>
-                  <div class="location"><img src="gameover.jpg" alt="Location 2" width="200" height="150"></div>
-                  <div class="location"><img src="gameover.jpg" alt="Location 3" width="200" height="150"></div>
-                  <div class="location"><img src="gameover.jpg" alt="Location 4" width="200" height="150"></div>
-                  <div class="location"><img src="gameover.jpg" alt="Location 5" width="200" height="150"></div>
-              </div>
-            </div>
-            <script>
-              const onclick = ["check0","check1","check2","check3","check4","check5","check6","check7","check8","check9","check10","check11","check12","check13","check14","check15","check16","check17","check18","check19","check20","check21","check22","check23","check24"];
-              var checkcount = 0;
-              var penalty = 0;
-              var treasurelocation = 5;
-              var traplocation = 18;
-              var gameover = false;
+    var rowDiff = Math.abs(treasureRow-lastRow);
+    var colDiff = Math.abs(treasureColumn-lastCol);
+    var helpMessage = "";
 
-              function check(position){
-                if(gameover){
-                  return;
-                }
-                const checknumber = document.getElementById(onclick[position]);
-                if(position==treasurelocation)
-                check_no.src = "treasurelocation.jpg";
-                    gameOver = true;
-                    penalty -= 3;
-                }
-                else if(position == trapLocation){
-                    check_no.src = "traplocation.png";
-                    gameOver = true;
-                    penalty += 4;
-                }
-                else{
-                    check_no.src = "gameover.jpeg";
-                }
-
-                checkCount++;
-                penalty++;
-                document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount;
-                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
-                lastCheck = position;
-            }
-
-            function help() {
-                if (gameOver) {
-                    return;
-                }
-                let treasureRow = Math.floor(treasureLocation / 5);
-                let treasureCol = treasureLocation % 5;
-                let lastLocationRow = Math.floor(lastCheck / 5);
-                let lastLocationCol = lastCheck % 5;
-
-                if (Math.abs(treasureRow - lastLocationRow) <= 1 && Math.abs(treasureCol - lastLocationCol) <= 1) {
-                    document.getElementById("help").innerHTML = "Can smell it";
-                } else if (Math.abs(treasureRow - lastLocationRow) + Math.abs(treasureCol - lastLocationCol) === 2) {
-                    document.getElementById("help").innerHTML = "Close Matie";
-                } else {
-                    document.getElementById("help").innerHTML = "Step Faster";
-                }
-                penalty += 2;
-                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
-            }
-
-                      
-            var trapLocation = Math.floor(Math.random() * 25); 
-            var treasureLocation = Math.floor(Math.random() * 25); 
-
-            function newGame() {
-                trapLocation = Math.floor(Math.random() * 25);
-                treasureLocation = Math.floor(Math.random() * 25);
-                checkCount = 0;
-                penalty = 0;
-                lastCheck = 0;
-                gameOver = false;
-                document.getElementById("locations").innerHTML = "Number of locations checked is 0";
-                document.getElementById("penalty").innerHTML = "Penalty is 0";
-                document.getElementById("help").innerHTML = "Click for help";
-                
-            }
-
-        </script>
-        
-              }
-
-            </script>
+    if ((rowDiff <= 1 && colDiff <= 1) && !(rowDiff === 1 && colDiff === 1)) {
+        helpMessage = "Can smell it";
+        penalty += 2;
+    } else if (rowDiff + colDiff === 2) {
+        helpMessage = "Close Matie";
+        penalty += 2;
+    } else {
+        helpMessage = "Step Faster";
+        penalty += 2;
+    }
+    document.getElementById("penalty").textContent = "Penalty: " + penalty;
+    document.getElementById("help").textContent = helpMessage;
+    }
+    function refresh(){
+        window.location.reload("Refresh")
+      }
+   
+   </script>
 
 </body>
 </html>

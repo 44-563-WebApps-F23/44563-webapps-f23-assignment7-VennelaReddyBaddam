@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html> <head> <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: rgb(133, 163, 133);
+	  }
+	}
+</style></head>
+
+
+
+<body>
+    <h2>VennelaReddyBaddam builds a merger</h2>
+    <div class="flex-container" id="target">
+        <div class="merger">row item 1</div>   
+        <div class="merger">row item 2</div>  
+        <div class="merger">row item 3</div>  
+    </div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+    <div class="form-group">
+        <input type="text" class="form-control" id="inputElement">
+    </div><br>
+		<button onclick="addEnd()">Add end</button>
+        <button onclick="addFront()">Add Front</button>
+        <button onclick="remove()">Remove</button>
+	
+	
+</body>
+<script>
+    function addEnd(){
+        let element = document.createElement("div")
+        element.innerHTML = document.getElementById("inputElement").value
+        element.style.color = "black"
+        element.className = "merger"
+        let container = document.getElementById("target")
+        container.appendChild(element)
+    }
+    function remove(){
+        let queueItems = document.getElementsByClassName("merger")
+        let length_elements = queueItems.length;
+        if(length_elements > 0){
+            var middleItem=Math.floor(length_elements/2);
+            queueItems[middleItem].remove();
+        }
+    }
+    function addFront() {
+      let element = document.createElement("div");
+      element.innerHTML = document.getElementById("inputElement").value;
+      element.style.color = "black";
+      element.className = "merger";
+      let container = document.getElementById("target");
+      container.insertBefore(element, container.firstChild);
+    }
+    function swap(){
+      let mergerItems = document.getElementsByClassName("merger");
+      let container = document.getElementById("target");
+      let element1 = Math.floor(Math.random()*mergerItems.length);
+      let element2 = Math.floor(Math.random()*mergerItems.length);
+      let firstInnerText = document.getElementsByClassName("merger")[element1];
+      let secondInnerText = document.getElementsByClassName("merger")[element2];
+
+if (mergerItems.length > 1) {
+     let temp = firstInnerText.innerHTML;
+    firstInnerText.innerHTML = secondInnerText.innerHTML;
+    secondInnerText.innerHTML = temp;
+
+}
+
+}
+</script>
+</html>	

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>setTimeout use</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <h2>VennelaReddyBaddam speed check</h2>
+
+  <div class="container border" style="background-color: rgb(166, 170, 172); font-family: 'Times New Roman', Times, serif;">
+    <p id="target">Your time</p>
+  </div>
+  <div class="container border" style="background-color: rgb(180, 234, 209); font-family: 'Times New Roman', Times, serif;">
+    <p id="counter">Count</p>
+  </div>
+
+  <br>
+  <div>
+    <button class="btn btn-primary"  id="startTimer" onclick="startTime()">Start Timer</button>
+    <button class="btn btn-info" id="reactButton" onclick="recordTime()">React</button>
+    <button class="btn btn-secondary" onclick="randomStart()">Random Start</button>
+
+  </div>
+  
+
+  <script>
+      var reactTime = undefined;
+      var startCount = Math.floor(Math.random()*(11-2)+2);
+      function recordTime() {
+          reactTime = Date.now();
+          console.log(reactTime);
+      }
+     // document.getElementById("reactButton").onclick = recordTime;
+      function startTime() {
+          for (let i = 0; i <= startCount; i++) {
+              setTimeout(() => {
+                  document.getElementById("counter").innerHTML = "Count: " + i;
+              }, (startCount - i) * 1000);
+          }
+          setTimeout(()=> {
+              if (reactTime === undefined) {
+                  document.getElementById("target").innerHTML = "Too Slow";
+              } else {
+                  var endTime = Date.now();
+                  document.getElementById("target").innerHTML = "Time was " + (endTime-reactTime);
+              }
+          },startCount*1000);
+      }
+
+      function randomStart(){
+        startCount = Math.floor(Math.random()*(10-2+1)+2)
+        startTime()
+      }
+  </script>
+
+</body>
+</html>
